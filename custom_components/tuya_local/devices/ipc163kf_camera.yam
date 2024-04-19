@@ -1,0 +1,78 @@
+name: Camera
+products:
+  - id: gpoz3qkmam8rxm1g
+    name: IPC163KF
+primary_entity:
+  entity: camera
+  dps:
+    - id: 134
+      type: boolean
+      name: motion_enable
+      optional: true
+    - id: 150
+      type: boolean
+      name: record
+      optional: true
+    - id: 178
+      type: string
+      name: log_event
+      optional: true
+    - id: 185
+      type: string
+      name: log_message
+      optional: true
+secondary_entities:
+  - entity: light
+    translation_key: indicator
+    category: config
+    dps:
+      - id: 101
+        type: boolean
+        name: switch
+        optional: true
+  - entity: select
+    name: Nightvision
+    icon: "mdi:weather-night"
+    category: config
+    dps:
+      - id: 124
+        type: string
+        name: option
+        optional: true
+        mapping:
+          - dps_val: auto
+            value: Auto
+          - dps_val: ir_mode
+            value: "On"
+          - dps_val: color_mode
+            value: "Off"
+  - entity: light
+    name: Floodlight
+    icon: "mdi:light-flood-down"
+    category: config
+    dps:
+      - id: 138
+        type: boolean
+        name: switch
+        optional: true
+      - id: 158
+        type: integer
+        name: brightness
+        optional: true
+        range:
+          min: 1
+          max: 100
+  - entity: select
+    name: Recording mode
+    icon: "mdi:file-video"
+    category: config
+    dps:
+      - id: 151
+        type: string
+        name: option
+        optional: true
+        mapping:
+          - dps_val: "1"
+            value: Event
+          - dps_val: "2"
+            value: Continuous
